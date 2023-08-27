@@ -9,6 +9,7 @@ import { NextPageContext } from "next";
 import { parse } from "cookie";
 import { loginModalContext } from "@/util/loginModalContext";
 import { bookingInfoContext } from "@/util/bookingInfoContext";
+import { BookingInterface } from "@/types/booking";
 
 export const accountStateContext = createContext<{
   accountState: userData | null;
@@ -21,7 +22,13 @@ export const accountStateContext = createContext<{
 function App({ Component, pageProps }: AppProps) {
   const [accountState, setAccountState] = useState<userData | null>(null);
   const [loginModalOpen, setLoginModalOpen] = useState(false);
-  const [bookingInfo, setBookingInfo] = useState({});
+  const [bookingInfo, setBookingInfo] = useState<BookingInterface>({
+    userID: "",
+    email: "",
+    movieTitle: "",
+    date: "",
+    seats: [],
+  });
 
   return (
     <>

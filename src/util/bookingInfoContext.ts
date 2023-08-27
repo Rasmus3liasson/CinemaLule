@@ -1,9 +1,9 @@
-import { createContext } from "react";
+import { Dispatch, SetStateAction, createContext } from "react";
 import { BookingInterface } from "@/types/booking";
 
 export const bookingInfoContext = createContext<{
   bookingInfo: BookingInterface;
-  setBookingInfo: React.Dispatch<React.SetStateAction<{}>>;
+  setBookingInfo: Dispatch<SetStateAction<BookingInterface>>;
 }>({
   bookingInfo: {} as BookingInterface,
   setBookingInfo: () => {},

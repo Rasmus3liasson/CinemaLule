@@ -56,7 +56,7 @@ export default function MovieDetailsPage({
   movie,
   movieScreenings,
 }: {
-  reviewData: ReviewProps;
+  reviewData: ReviewData[];
   movie: MovieProps;
   movieScreenings: string;
 }) {

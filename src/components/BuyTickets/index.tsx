@@ -3,13 +3,7 @@ import React, { useContext } from "react";
 import Router, { useRouter } from "next/router";
 import { accountStateContext } from "@/pages/_app";
 
-export default function BuyTickets({
-  movieData,
-  postNewSeats,
-}: {
-  movieData: any;
-  postNewSeats: () => Promise<void>;
-}) {
+export default function BuyTickets({ movieData }: { movieData: any }) {
   const { accountState } = useContext(accountStateContext);
   const router = useRouter();
   const { id, date } = router.query;

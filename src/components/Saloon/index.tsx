@@ -12,7 +12,7 @@ export default function Saloon({
   movieData,
 }: {
   seatsData: number[];
-  movieData: BookingInterface & { postNewSeats: () => Promise<void> };
+  movieData: BookingInterface;
 }) {
   //acces accountstate
   const { accountState } = useContext(accountStateContext);
@@ -37,13 +37,15 @@ export default function Saloon({
   };
 
   useEffect(() => {
-    setBookingInfo({
-      userID: accountState?.name.first,
-      email: accountState?.email,
-      movieTitle: id,
-      date: date,
-      seats: selectedSeats.sort((a: number, b: number) => a - b),
-    });
+    if (accountState) {
+      setBookingInfo({
+        userID: accountState?.name?.first || "",
+        email: accountState?.email || "",
+        movieTitle: Array.isArray(id) ? id[0] : id || "",
+        date: Array.isArray(date) ? date[0] : date || "",
+        seats: selectedSeats.sort((a: number, b: number) => a - b),
+      });
+    }
   }, [setBookingInfo, accountState, id, date, selectedSeats]);
 
   return (

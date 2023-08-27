@@ -8,7 +8,7 @@ export default function PickSeat({
   selectedSeats,
 }: {
   bookedSeats: number[];
-  handleSeatClick: () => void;
+  handleSeatClick: (seatValue: number) => void;
   selectedSeats: number[];
 }) {
   const seatBoard = () => {
