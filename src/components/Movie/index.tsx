@@ -12,7 +12,7 @@ import { MovieProps } from "@/util/types";
  *  clickable and routes to /movies/:id
  */
 export default function Movie({ movieData }: { movieData: MovieProps }) {
-  const link = `/movies/${movieData.title}`;
+  const link = `/movies/${encodeURIComponent(movieData.title)}`;
   return (
     <figure className={style.card}>
       <Link style={{ textDecoration: "none" }} passHref href={link}>
